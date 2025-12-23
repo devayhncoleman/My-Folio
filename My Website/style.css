@@ -1,0 +1,180 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-style: italic;
+}
+
+/* Navigation */
+nav {
+  background: #333;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover {
+  background: #4CAF50;
+  border-radius: 4px;
+}
+
+/* Sections */
+section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+section h2 {
+  margin-bottom: 1rem;
+  color: #4CAF50;
+}
+
+/* Projects */
+article {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+article h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* Contact */
+#contact p {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* ===== Add-ons for interactivity ===== */
+
+.tagline { margin-top: 0.25rem; }
+
+.header-meta { margin-top: 1rem; }
+.mini { opacity: 0.9; font-size: 0.95rem; }
+
+.cta-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button, .chip {
+  border: none;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #222;
+  color: white;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+button:hover, .chip:hover { opacity: 0.92; }
+button:active, .chip:active { transform: scale(0.98); }
+
+.vol {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,0,0,0.15);
+  padding: 0.35rem 0.6rem;
+  border-radius: 10px;
+  color: white;
+}
+
+#musicVol { width: 120px; }
+
+.fun-panel {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.06);
+}
+
+.bullets { margin-top: 0.75rem; padding-left: 1.2rem; }
+.bullets li { margin-bottom: 0.5rem; }
+
+.skill-card { margin-bottom: 0.9rem; }
+
+.chip-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+
+.chip {
+  background: #4CAF50;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Night Shift Mode */
+html.night-shift body { background: #0f1220; color: #e9ecff; }
+html.night-shift header { background: #1b2a6b; }
+html.night-shift nav { background: #0b0d14; }
+html.night-shift section h2 { color: #9bd3ff; }
+html.night-shift article { background: rgba(255,255,255,0.06); color: #e9ecff; }
+html.night-shift nav ul li a:hover { background: #1b2a6b; }
+
+/* Boss Mode (Konami code) */
+html.boss-mode header { background: #111; }
+html.boss-mode section h2 { color: #ffd54a; }
