@@ -15,6 +15,7 @@ html, body {
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
+  /* DAY MODE: purple space */
   background: radial-gradient(circle at top left, #231131 0, #050309 45%, #050309 100%);
   color: #f5f3ff;
 }
@@ -26,26 +27,14 @@ body {
   min-height: 100vh;
 }
 
+/* Gold column with subtle glow */
 .page-accent {
   width: 56px;
   background:
     linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2)),
     linear-gradient(180deg, #d9b35a 0%, #c48b3b 40%, #7b4c1a 100%);
   box-shadow: 8px 0 24px rgba(0,0,0,0.8);
-}
-
-.page-main {
-  flex: 1;
-  padding: 0 1.4rem 2.4rem;
-}
-
-/* center main content with max-width */
-header,
-.nav-inner,
-section,
-footer {
-  max-width: 1120px;
-  margin: 0 auto;
+  animation: accent-glow 8s ease-in-out infinite;
 }
 
 @keyframes accent-glow {
@@ -63,15 +52,19 @@ footer {
   }
 }
 
-.page-accent {
-  width: 56px;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2)),
-    linear-gradient(180deg, #d9b35a 0%, #c48b3b 40%, #7b4c1a 100%);
-  box-shadow: 8px 0 24px rgba(0,0,0,0.8);
-  animation: accent-glow 8s ease-in-out infinite;
+.page-main {
+  flex: 1;
+  padding: 0 1.4rem 2.4rem;
 }
 
+/* center main content with max-width */
+header,
+.nav-inner,
+section,
+footer {
+  max-width: 1120px;
+  margin: 0 auto;
+}
 
 /* ========== HEADER (EXECUTIVE HERO) ========== */
 
@@ -79,6 +72,7 @@ header {
   margin-top: 2.4rem;
   margin-bottom: 1.6rem;
   padding: 2rem 2.2rem;
+  /* DAY: royal purple gradient */
   background: linear-gradient(135deg, #2c1544 0%, #100514 45%, #050309 100%);
   color: #fdf8ff;
   border: 1px solid rgba(217, 179, 90, 0.7);
@@ -122,6 +116,39 @@ header h1,
 .tagline {
   font-size: 1rem;
   opacity: 0.9;
+}
+
+/* availability pill */
+.availability-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  padding: 0.3rem 0.7rem 0.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 179, 90, 0.75);
+  background: rgba(5, 3, 9, 0.9);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.95;
+  position: relative;
+}
+
+.availability-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #24ff9f;
+  box-shadow: 0 0 10px rgba(36, 255, 159, 0.9);
+  animation: pulse-dot 1.6s ease-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%   { transform: scale(1); opacity: 1; }
+  60%  { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
 }
 
 .header-meta {
@@ -173,37 +200,34 @@ header h1,
   flex-direction: column;
   gap: 1rem;
 }
+.header-note {
+  margin: 0;
+  opacity: 0.85;
+}
 
-.availability-pill {
-  display: inline-flex;
+/* Action bar under the header card */
+.header-actions {
+  max-width: 1120px;
+  margin: 0 auto 1.4rem;
+  padding: 0.75rem 0.4rem 0.1rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.6rem;
-  padding: 0.3rem 0.7rem 0.35rem;
-  border-radius: 999px;
-  border: 1px solid rgba(217, 179, 90, 0.75);
-  background: rgba(5, 3, 9, 0.9);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  opacity: 0.95;
-  position: relative;
+  gap: 1rem;
 }
 
-.availability-pill::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #24ff9f;
-  box-shadow: 0 0 10px rgba(36, 255, 159, 0.9);
-  animation: pulse-dot 1.6s ease-out infinite;
+.header-actions-left,
+.header-actions-right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 
-@keyframes pulse-dot {
-  0%   { transform: scale(1); opacity: 1; }
-  60%  { transform: scale(1.9); opacity: 0; }
-  100% { transform: scale(1.9); opacity: 0; }
+@media (max-width: 900px) {
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* ========== CTA ROW & BUTTONS ========== */
@@ -329,7 +353,6 @@ button:active,
   text-decoration: none;
 }
 
-
 /* ========== NAVIGATION ========== */
 
 nav {
@@ -401,8 +424,9 @@ section h2 {
   font-weight: 600;
 }
 
+/* MAIN cards: deep inky blue (used on both pages) */
 article {
-  background: #090713; /* deep inky base */
+  background: #090713; /* deep blue behind lettering */
   border-radius: 4px;
   border: 1px solid rgba(217, 179, 90, 0.25);
   padding: 1.25rem 1.3rem;
@@ -414,10 +438,6 @@ article h3 {
   margin-bottom: 0.35rem;
   font-size: 1.02rem;
   font-weight: 600;
-}
-
-.skill-card {
-  background: #070513;
 }
 
 /* two-column layout for selected sections */
@@ -466,6 +486,7 @@ article h3 {
   max-width: 640px;
 }
 
+/* GALLERY cards: match main page deep blue */
 .gallery-grid {
   margin-top: 1.4rem;
   display: grid;
@@ -479,9 +500,8 @@ article h3 {
   }
 }
 
-/* Showcase cards now match main page cards */
 .gallery-card {
-  background: #090713;
+  background: #090713; /* SAME as article */
   border-radius: 4px;
   border: 1px solid rgba(217, 179, 90, 0.35);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
@@ -489,6 +509,13 @@ article h3 {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+
+/* Frame now uses the same deep blue, not the purple gradient */
+.gallery-frame {
+  border: 1px solid rgba(217, 179, 90, 0.6);
+  padding: 0.9rem 1rem;
+  background: #090713;
 }
 
 .gallery-frame h3 {
@@ -544,11 +571,16 @@ footer {
   border-top: 1px solid rgba(217, 179, 90, 0.25);
 }
 
-/* ========== NIGHT SHIFT MODE (royal purple -> deep blue) ========== */
+/* ========== NIGHT SHIFT MODE (royal blue) ========== */
+/* This is the ONLY place royal blues live */
 
 html.night-shift body {
   background: radial-gradient(circle at top, #101f3b 0, #050814 55%, #020208 100%);
   color: #eaf2ff;
+}
+
+html.night-shift .page-shell {
+  background: radial-gradient(circle at top, #101f3b 0, #050814 55%, #020208 100%);
 }
 
 html.night-shift .page-accent {
@@ -557,25 +589,45 @@ html.night-shift .page-accent {
     linear-gradient(180deg, #4fa3ff 0%, #2f80ed 40%, #143b73 100%);
 }
 
-html.night-shift .page-shell {
-  background: radial-gradient(circle at top, #101f3b 0, #050814 55%, #020208 100%);
-}
-
+/* Header & gallery header go blue */
 html.night-shift header,
 html.night-shift .gallery-header {
   background: linear-gradient(135deg, #162745 0%, #070e21 40%, #02040a 100%);
   border-color: rgba(155, 211, 255, 0.7);
 }
 
+/* Nav + footer go navy, not purple */
+html.night-shift nav,
+html.night-shift footer {
+  background: #030a18;
+  border-color: rgba(155, 211, 255, 0.35);
+  color: #dceeff;
+}
+
+/* Section headings switch to cool blue */
 html.night-shift section h2 {
   color: #9bd3ff;
 }
 
-html.night-shift article {
+/* Cards / frames / fun panels use deep navy */
+html.night-shift article,
+html.night-shift .gallery-card {
   background: #050814;
   border-color: rgba(155, 211, 255, 0.35);
 }
 
+html.night-shift .gallery-frame {
+  background: radial-gradient(circle at top, #162745, #050814);
+  border-color: rgba(155, 211, 255, 0.65);
+}
+
+html.night-shift .fun-panel,
+html.night-shift .mini-game {
+  background: #030a18;
+  border-color: rgba(155, 211, 255, 0.4);
+}
+
+/* Chips become blue-based */
 html.night-shift .chip {
   background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%);
 }
@@ -602,27 +654,4 @@ html.boss-mode .gallery-header {
 
 html.boss-mode section h2 {
   color: #ffdd7e;
-}
-/* Make nav / footer / panels also go blue in Night Shift */
-html.night-shift nav,
-html.night-shift footer {
-  background: #030a18;
-  border-color: rgba(155, 211, 255, 0.35);
-  color: #dceeff;
-}
-
-html.night-shift .fun-panel,
-html.night-shift .mini-game {
-  background: #030a18;
-  border-color: rgba(155, 211, 255, 0.4);
-}
-
-html.night-shift .gallery-card {
-  background: #030a18;
-  border-color: rgba(155, 211, 255, 0.4);
-}
-
-html.night-shift .gallery-frame {
-  background: radial-gradient(circle at top, #162745, #030a18);
-  border-color: rgba(155, 211, 255, 0.65);
 }

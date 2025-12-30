@@ -13,31 +13,43 @@
     <div class="page-main">
       <!-- HEADER -->
       <header class="gallery-header">
-        <div class="header-left">
-          <h1>Showcase Gallery</h1>
-          <p class="tagline">Curated work, features, and artifacts from my journey in tech &amp; operations.</p>
-        </div>
+  <div class="header-left">
+    <h1>Showcase Gallery</h1>
+    <p class="tagline">
+      Curated work, features, and artifacts from my journey in tech &amp; operations.
+    </p>
+  </div>
 
-        <div class="header-right">
-          <div class="cta-row">
-            <a href="index.html">
-              <button type="button">Back to Home</button>
-            </a>
-            <button id="toggleNightShift" type="button">Night Shift Mode</button>
-          </div>
+  <div class="header-right">
+    <p class="mini header-note">
+      A rotating view into repos, labs, and creative work that shows how I think and build.
+    </p>
+  </div>
+</header>
 
-          <div class="cta-row">
-            <button id="musicToggle" type="button">Play music 🎵</button>
-            <label class="vol">
-              <span>Volume</span>
-              <input id="musicVol" type="range" min="0" max="1" step="0.01" value="0.25">
-            </label>
-          </div>
+<!-- SAME ACTION BAR PATTERN -->
+<div class="header-actions">
+  <div class="header-actions-left">
+    <a href="index.html">
+      <button type="button">Back to Home</button>
+    </a>
+  </div>
 
-          <audio id="bgMusic" src="assets/Chill2.mp3" preload="auto"></audio>
-          <audio id="alertSound" src="assets/shocked.mp3" preload="auto"></audio>
-        </div>
-      </header>
+  <div class="header-actions-right">
+    <button id="toggleNightShift" type="button">Night Shift Mode 🦉</button>
+
+    <button id="musicToggle" type="button">Play music 🎵</button>
+
+    <label class="vol">
+      <span>Volume</span>
+      <input id="musicVol" type="range" min="0" max="1" step="0.01" value="0.25">
+    </label>
+
+    <audio id="bgMusic" src="assets/Chill2.mp3" preload="auto"></audio>
+    <audio id="alertSound" src="assets/shocked.mp3" preload="auto"></audio>
+  </div>
+</div>
+
 
       <!-- NAV -->
       <nav>

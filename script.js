@@ -17,12 +17,29 @@
       document.body.appendChild(host);
     }
 
-    function show(msg, type = "info", ttl = 3200) {
+        function show(msg, type = "info", ttl = 3200) {
       const el = document.createElement("div");
-      const bg =
-        type === "good" ? "rgba(32, 200, 120, .92)" :
-        type === "bad"  ? "rgba(240, 80, 90, .92)" :
-        "rgba(60, 110, 255, .92)";
+
+      const isNight = document.documentElement.classList.contains("night-shift");
+      let bg;
+
+      if (!isNight) {
+        // DAY: purple + gold energy
+        bg =
+          type === "good"
+            ? "linear-gradient(135deg, #2bbf82, #20a566)"    // success: green/gold
+            : type === "bad"
+            ? "linear-gradient(135deg, #f24b70, #c8334f)"    // error: deep pink/red
+            : "linear-gradient(135deg, #4f3dd9, #8b5cf6)";   // info: royal purple
+      } else {
+        // NIGHT: royal blue energy
+        bg =
+          type === "good"
+            ? "linear-gradient(135deg, #2dd4bf, #14b8a6)"    // teal success
+            : type === "bad"
+            ? "linear-gradient(135deg, #fb7185, #e11d48)"    // neon red
+            : "linear-gradient(135deg, #3b82f6, #1d4ed8)";   // blue info
+      }
 
       el.style.cssText = `
         background: ${bg};
@@ -34,7 +51,9 @@
         opacity: 0;
         transition: transform .18s ease, opacity .18s ease;
         line-height: 1.25;
+        border: 1px solid rgba(255,255,255,0.12);
       `;
+
       el.textContent = msg;
       host.appendChild(el);
 
@@ -95,7 +114,7 @@
     if (saved) {
       applyNightShift(saved === "on");
     } else {
-      applyNightShift(false); // default: day = purple + gold
+      applyNightShift(false); // default: DAY = purple + gold
     }
 
     nightBtn.addEventListener("click", () => {
@@ -109,6 +128,7 @@
       );
     });
   }
+
 
   // ---------- Sparkle burst ----------
   function sparkleBurst(anchorEl) {
