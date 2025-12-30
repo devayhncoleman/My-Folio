@@ -136,7 +136,7 @@
       "✅ Uptime: high. ✅ Drama: low. ✅ Coffee: yes.",
       "This click has been logged as an incident (Severity: Exciting).",
       "Autoscaling confidence… now at 9000%.",
-      "If you can read this toast, you can probably hire me."
+      "If you can read this toast, you're in the running to become America's Next Top Model!"
     ];
     hireBtn.addEventListener("click", () => {
       sparkleBurst(hireBtn);
