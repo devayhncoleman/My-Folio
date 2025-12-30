@@ -80,19 +80,33 @@
     revealables.forEach(el => io.observe(el));
   }
 
-  // ---------- Night shift mode ----------
+   // ---------- Night shift mode ----------
   const nightBtn = $("#toggleNightShift");
   if (nightBtn) {
     const key = "nightShiftMode";
-    const apply = (on) => document.documentElement.classList.toggle("night-shift", on);
+
+    const applyNightShift = (on) => {
+      document.documentElement.classList.toggle("night-shift", on);
+      nightBtn.textContent = on ? "Switch to Day Mode ☀️" : "Night Shift Mode 🦉";
+    };
+
+    // Load saved preference
     const saved = localStorage.getItem(key);
-    if (saved) apply(saved === "on");
+    if (saved) {
+      applyNightShift(saved === "on");
+    } else {
+      applyNightShift(false); // default: day = purple + gold
+    }
 
     nightBtn.addEventListener("click", () => {
-      const on = !document.documentElement.classList.contains("night-shift");
-      apply(on);
-      localStorage.setItem(key, on ? "on" : "off");
-      toast.show(on ? "Night Shift Mode engaged. 🦉" : "Day Shift restored. ☀️", "info");
+      const isOn = document.documentElement.classList.contains("night-shift");
+      const next = !isOn;
+      applyNightShift(next);
+      localStorage.setItem(key, next ? "on" : "off");
+      toast.show(
+        next ? "Night Shift Mode engaged. Royal blue vibes. 🦉" : "Day Mode restored. Purple & gold. ☀️",
+        "info"
+      );
     });
   }
 
@@ -136,7 +150,7 @@
       "✅ Uptime: high. ✅ Drama: low. ✅ Coffee: yes.",
       "This click has been logged as an incident (Severity: Exciting).",
       "Autoscaling confidence… now at 9000%.",
-      "If you can read this toast, you're in the running to become America's Next Top Model!"
+      "If you can read this toast, you're in the running to become America's Next Top Model"
     ];
     hireBtn.addEventListener("click", () => {
       sparkleBurst(hireBtn);

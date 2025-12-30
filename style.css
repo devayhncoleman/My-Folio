@@ -48,6 +48,31 @@ footer {
   margin: 0 auto;
 }
 
+@keyframes accent-glow {
+  0% {
+    box-shadow: 8px 0 24px rgba(0, 0, 0, 0.8);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 12px 0 40px rgba(0, 0, 0, 0.95);
+    filter: brightness(1.06);
+  }
+  100% {
+    box-shadow: 8px 0 24px rgba(0, 0, 0, 0.8);
+    filter: brightness(1);
+  }
+}
+
+.page-accent {
+  width: 56px;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2)),
+    linear-gradient(180deg, #d9b35a 0%, #c48b3b 40%, #7b4c1a 100%);
+  box-shadow: 8px 0 24px rgba(0,0,0,0.8);
+  animation: accent-glow 8s ease-in-out infinite;
+}
+
+
 /* ========== HEADER (EXECUTIVE HERO) ========== */
 
 header {
@@ -147,6 +172,38 @@ header h1,
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.availability-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  padding: 0.3rem 0.7rem 0.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 179, 90, 0.75);
+  background: rgba(5, 3, 9, 0.9);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.95;
+  position: relative;
+}
+
+.availability-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #24ff9f;
+  box-shadow: 0 0 10px rgba(36, 255, 159, 0.9);
+  animation: pulse-dot 1.6s ease-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%   { transform: scale(1); opacity: 1; }
+  60%  { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
 }
 
 /* ========== CTA ROW & BUTTONS ========== */
