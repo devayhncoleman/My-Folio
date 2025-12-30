@@ -245,6 +245,31 @@ button:active,
   background: rgba(217, 179, 90, 0.35);
   border-radius: 2px;
 }
+.primary-cta {
+  background: linear-gradient(135deg, #f7e6a7 0%, #d9b35a 35%, #c48b3b 70%, #f5f0d0 100%);
+  color: #140b10;
+  font-size: 0.92rem;
+  letter-spacing: 0.16em;
+  padding: 0.8rem 1.6rem;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.85);
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.primary-cta:hover {
+  opacity: 0.98;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.9);
+  transform: translateY(-1px);
+}
+
+.primary-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.75);
+}
+
+.primary-link {
+  text-decoration: none;
+}
 
 /* ========== NAVIGATION ========== */
 
@@ -476,6 +501,10 @@ html.night-shift .page-accent {
   background:
     linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2)),
     linear-gradient(180deg, #4fa3ff 0%, #2f80ed 40%, #143b73 100%);
+}
+
+html.night-shift .page-shell {
+  background: radial-gradient(circle at top, #101f3b 0, #050814 55%, #020208 100%);
 }
 
 html.night-shift header,
