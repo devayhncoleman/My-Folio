@@ -1,151 +1,228 @@
-/* Reset some default browser styles */
+/* RESET-ish */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body, h1, h2, h3, p, ul {
   margin: 0;
   padding: 0;
 }
 
-/* Global styles */
+/* GLOBAL */
 body {
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
+  background: radial-gradient(circle at top left, #2b1844 0, #050309 45%, #050309 100%);
+  color: #f6f1ff;
+  min-height: 100vh;
 }
 
-/* Header */
+a {
+  color: inherit;
+}
+
+/* LAYOUT */
+section {
+  padding: 2.5rem 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+section h2 {
+  margin-bottom: 1rem;
+  color: #f2c94c; /* gold */
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* HEADER */
 header {
-  background: #4CAF50;
-  color: white;
+  background: linear-gradient(135deg, #3c184f 0%, #140715 45%, #050309 100%);
+  color: #fdf7ff;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1.5rem 2rem;
+  border-bottom: 1px solid rgba(242, 201, 76, 0.26);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
 }
 
 header h1 {
-  margin-bottom: 0.5rem;
+  font-size: 2.4rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-header p {
-  font-style: italic;
+.tagline {
+  margin-top: 0.35rem;
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
-/* Navigation */
+.header-meta {
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.header-meta p {
+  margin-bottom: 0.25rem;
+}
+
+.mini {
+  opacity: 0.85;
+  font-size: 0.9rem;
+}
+
+/* NAVIGATION */
 nav {
-  background: #333;
+  background: #050309;
+  border-bottom: 1px solid rgba(242, 201, 76, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-}
-
-nav ul li {
-  margin: 0 1rem;
+  gap: 1.8rem;
+  padding: 0.8rem 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 nav ul li a {
-  color: white;
+  color: #f6f1ff;
   text-decoration: none;
-  padding: 0.5rem;
-  transition: background 0.3s;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  position: relative;
+  padding-bottom: 0.2rem;
 }
 
-nav ul li a:hover {
-  background: #4CAF50;
-  border-radius: 4px;
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f2c94c, #f2994a);
+  transition: width 0.2s ease;
 }
 
-/* Sections */
-section {
-  padding: 2rem;
-  max-width: 800px;
-  margin: auto;
+nav ul li a:hover::after {
+  width: 100%;
 }
 
-section h2 {
-  margin-bottom: 1rem;
-  color: #4CAF50;
-}
-
-/* Projects */
-article {
-  background: white;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-article h3 {
-  margin-bottom: 0.5rem;
-}
-
-/* Contact */
-#contact p {
-  margin-bottom: 0.5rem;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  background: #333;
-  color: white;
-  padding: 1rem;
-  margin-top: 2rem;
-}
-
-/* ===== Add-ons for interactivity ===== */
-
-.tagline { margin-top: 0.25rem; }
-
-.header-meta { margin-top: 1rem; }
-.mini { opacity: 0.9; font-size: 0.95rem; }
-
+/* BUTTONS + CTA ROW */
 .cta-row {
-  margin-top: 1rem;
+  margin-top: 1.4rem;
   display: flex;
-  gap: 0.6rem;
+  gap: 0.8rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-button, .chip {
+button,
+.chip {
   border: none;
-  padding: 0.6rem 0.9rem;
-  border-radius: 8px;
+  padding: 0.6rem 0.95rem;
+  border-radius: 999px;
   cursor: pointer;
-  background: #222;
-  color: white;
-  transition: transform 0.1s ease, opacity 0.2s ease;
+  background: linear-gradient(135deg, #f2c94c 0%, #f2994a 100%);
+  color: #1a1022;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: transform 0.1s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  white-space: nowrap;
 }
 
-button:hover, .chip:hover { opacity: 0.92; }
-button:active, .chip:active { transform: scale(0.98); }
+button:hover,
+.chip:hover {
+  opacity: 0.94;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.5);
+}
 
+button:active,
+.chip:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+.chip {
+  background: linear-gradient(135deg, #f2994a 0%, #f2c94c 60%, #f2994a 100%);
+}
+
+/* VOLUME PILL */
 .vol {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(0,0,0,0.15);
-  padding: 0.35rem 0.6rem;
-  border-radius: 10px;
-  color: white;
+  gap: 0.4rem;
+  background: rgba(5,3,9,0.7);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  color: #f6f1ff;
+  border: 1px solid rgba(242, 201, 76, 0.4);
 }
 
-#musicVol { width: 120px; }
+#musicVol {
+  width: 120px;
+}
 
+/* CARDS / ARTICLES */
+article {
+  background: radial-gradient(circle at top left, rgba(242,201,76,0.08), rgba(10,5,20,0.96));
+  padding: 1.4rem 1.3rem;
+  margin-bottom: 1.1rem;
+  border-radius: 18px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.55);
+  border: 1px solid rgba(242, 201, 76, 0.10);
+}
+
+article h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.skill-card {
+  background: radial-gradient(circle at top left, rgba(242,201,76,0.08), rgba(14,7,28,0.96));
+}
+
+/* BULLETS */
+.bullets {
+  margin-top: 0.7rem;
+  padding-left: 1.1rem;
+}
+
+.bullets li {
+  margin-bottom: 0.45rem;
+}
+
+/* FUN PANEL / MINI GAME */
 .fun-panel {
   margin-top: 1rem;
   padding: 1rem;
-  border-radius: 10px;
-  background: rgba(0,0,0,0.06);
+  border-radius: 16px;
+  background: rgba(5, 3, 9, 0.82);
+  border: 1px solid rgba(242, 201, 76, 0.25);
 }
 
-.bullets { margin-top: 0.75rem; padding-left: 1.2rem; }
-.bullets li { margin-bottom: 0.5rem; }
+.mini-game {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(5, 3, 9, 0.82);
+  border: 1px solid rgba(242, 201, 76, 0.2);
+}
 
-.skill-card { margin-bottom: 0.9rem; }
-
+/* CHIP ROW */
 .chip-row {
   display: flex;
   gap: 0.5rem;
@@ -153,28 +230,68 @@ button:active, .chip:active { transform: scale(0.98); }
   margin-top: 0.8rem;
 }
 
-.chip {
-  background: #4CAF50;
-}
-
+/* REVEAL ANIMATIONS */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(14px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
 [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Night Shift Mode */
-html.night-shift body { background: #0f1220; color: #e9ecff; }
-html.night-shift header { background: #1b2a6b; }
-html.night-shift nav { background: #0b0d14; }
-html.night-shift section h2 { color: #9bd3ff; }
-html.night-shift article { background: rgba(255,255,255,0.06); color: #e9ecff; }
-html.night-shift nav ul li a:hover { background: #1b2a6b; }
+/* CONTACT SECTION */
+#contact p {
+  margin-bottom: 0.5rem;
+}
 
-/* Boss Mode (Konami code) */
-html.boss-mode header { background: #111; }
-html.boss-mode section h2 { color: #ffd54a; }
+/* FOOTER */
+footer {
+  text-align: center;
+  background: #050309;
+  color: #f6f1ff;
+  padding: 1.2rem 1rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(242, 201, 76, 0.15);
+}
+
+/* NIGHT SHIFT MODE */
+/* You’re already in a dark executive vibe; night-shift boosts contrast + cool tone */
+html.night-shift body {
+  background: radial-gradient(circle at top, #131833 0, #03040a 50%, #020308 100%);
+  color: #eef3ff;
+}
+
+html.night-shift header {
+  background: linear-gradient(135deg, #1b255a 0%, #050309 80%);
+}
+
+html.night-shift section h2 {
+  color: #9bd3ff;
+}
+
+html.night-shift article {
+  background: radial-gradient(circle at top left, rgba(155, 211, 255, 0.1), rgba(6, 9, 24, 0.96));
+  border-color: rgba(155, 211, 255, 0.2);
+}
+
+html.night-shift .chip {
+  background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%);
+}
+
+/* BOSS MODE (Konami / Panic toggle) */
+html.boss-mode header {
+  background: linear-gradient(135deg, #000000 0%, #3c1b43 50%, #000000 100%);
+}
+
+html.boss-mode section h2 {
+  color: #ffdd7e;
+}
+
+html.boss-mode body {
+  text-shadow: 0 0 18px rgba(242, 201, 76, 0.2);
+}
+
