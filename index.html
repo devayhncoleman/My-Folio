@@ -7,184 +7,247 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="page-shell">
+    <div class="page-accent"></div>
 
-  <!-- Header -->
-  <header>
-    <h1>DeVayhn (Devayjah) Coleman</h1>
-    <p class="tagline">Operations-focused IT • Security+ • Night-shift proven</p>
+    <div class="page-main">
+      <!-- Header -->
+      <header>
+        <div class="header-left">
+          <h1>DeVayhn (Devayjah) Coleman</h1>
+          <p class="tagline">Operations-Focused IT • Security+ • Night-Shift Proven</p>
 
-    <div class="header-meta">
-      <p><strong>Austin, TX</strong> (Open to in-person & hybrid roles)</p>
-      <p><strong>Phone:</strong> (510) 934-7112</p>
-      <p class="mini">
-        CompTIA Security+ (Active) • Network+ (In Progress) • Cloud+ (Planned)
-      </p>
-      <p class="mini">
-        Linux • Networking • Monitoring • Incident Response • Infrastructure Operations
-      </p>
+          <div class="header-meta">
+            <p><strong>Austin, TX</strong> (Open to in-person &amp; hybrid roles)</p>
+            <p><strong>Phone:</strong> (510) 934-7112</p>
+            <p class="mini">
+              CompTIA Security+ (Active) • Network+ (In Progress) • Cloud+ (Planned)
+            </p>
+            <p class="mini">
+              Linux • Networking • Monitoring • Incident Response • Infrastructure Operations
+            </p>
+          </div>
+
+          <div class="metrics-bar">
+            <div class="metric">
+              <span class="metric-label">Years in Ops</span>
+              <span class="metric-value">3+</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Night Shifts</span>
+              <span class="metric-value">400+</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Incidents Touched</span>
+              <span class="metric-value">100s</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="cta-row">
+            <button id="hireMeBtn" type="button">Hire Me</button>
+            <button id="toggleNightShift" type="button">Night Shift Mode</button>
+          </div>
+
+          <div class="cta-row">
+            <button id="musicToggle" type="button">Play music 🎵</button>
+            <label class="vol">
+              <span>Volume</span>
+              <input id="musicVol" type="range" min="0" max="1" step="0.01" value="0.25">
+            </label>
+          </div>
+
+          <div class="cta-row social-row">
+            <a href="https://www.linkedin.com/in/devayhn-coleman-788411223/"
+               target="_blank" rel="noopener">
+              <button type="button">LinkedIn</button>
+            </a>
+            <a href="https://github.com/devayhncoleman/My-Folio"
+               target="_blank" rel="noopener">
+              <button type="button">GitHub</button>
+            </a>
+          </div>
+
+          <!-- Audio elements -->
+          <audio id="bgMusic" src="assets/Chill1.mp3" preload="auto"></audio>
+          <audio id="alertSound" src="assets/shocked.mp3" preload="auto"></audio>
+        </div>
+      </header>
+
+      <!-- Navigation -->
+      <nav>
+        <div class="nav-inner">
+          <ul>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#practice">Hands-on</a></li>
+            <li><a href="#certs">Certs</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Summary -->
+      <section id="summary" data-reveal>
+        <h2>Professional Summary</h2>
+        <article>
+          <p>
+            Operations-focused IT professional supporting live production environments during overnight and
+            extended 12-hour shifts. Security+ certified with strong networking fundamentals and Linux experience.
+            Proven in system monitoring, real-time alert response, first-level troubleshooting, escalation, and
+            documentation to maintain uptime in high-responsibility environments.
+          </p>
+
+          <div class="fun-panel" id="funPanel" aria-live="polite">
+            <p><strong>Status:</strong> <span id="statusLine">Standing by for alerts…</span></p>
+            <div class="cta-row">
+              <button id="simulateAlertBtn" type="button">Simulate Alert 🚨</button>
+              <button id="calmDownBtn" type="button">Resolve Incident ✅</button>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" data-reveal>
+        <h2>Technical Skills</h2>
+
+        <div class="two-column">
+          <article class="skill-card">
+            <h3>Networking</h3>
+            <p>TCP/IP, DNS, DHCP, VLANs, Subnetting, Firewall fundamentals, VPN concepts</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Systems</h3>
+            <p>Linux (CLI), Windows fundamentals, virtual machines, system health monitoring</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Operations</h3>
+            <p>Monitoring &amp; alert response, incident triage, escalation workflows, documentation, change-controlled environments</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Security</h3>
+            <p>Access control, least privilege, incident awareness, Security+ principles</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Tools</h3>
+            <p>Command-line utilities, log review, ticketing systems (conceptual), monitoring dashboards</p>
+          </article>
+        </div>
+
+        <div class="chip-row">
+          <button class="chip" data-chip="Linux">Linux</button>
+          <button class="chip" data-chip="DNS">DNS</button>
+          <button class="chip" data-chip="Triage">Triage</button>
+          <button class="chip" data-chip="Uptime">Uptime</button>
+          <button class="chip" data-chip="Least Privilege">Least Privilege</button>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" data-reveal>
+        <h2>Professional Experience</h2>
+
+        <article>
+          <h3>Technical Operations / Lab Operator</h3>
+          <p class="mini"><strong>Emerald Cloud Lab</strong> — Austin, TX • March 2022 – Present</p>
+          <ul class="bullets">
+            <li>Monitored and supported 24/7 production environments, responding to alerts and operational incidents in real time during overnight 12-hour shifts.</li>
+            <li>Responded to system alerts, investigated anomalies, and followed documented procedures for resolution or escalation.</li>
+            <li>Performed first-level troubleshooting across systems, access controls, and operational workflows to identify root causes and determine escalation paths.</li>
+            <li>Documented incidents, actions taken, and resolutions to support shift handoffs, operational continuity, and audit readiness.</li>
+            <li>Coordinated with cross-functional teams to resolve time-sensitive incidents impacting production operations.</li>
+            <li>Operated within change-controlled environments requiring precision, accountability, and clear communication.</li>
+          </ul>
+
+          <div class="cta-row">
+            <button id="copyBulletsBtn" type="button">Copy experience bullets 📋</button>
+          </div>
+        </article>
+      </section>
+
+      <!-- Hands-on Practice -->
+      <section id="practice" data-reveal>
+        <h2>Hands-on Operations Practice</h2>
+        <article>
+          <ul class="bullets">
+            <li>Performed Linux and Windows troubleshooting labs covering connectivity, DNS resolution, service management, log analysis, and system health monitoring.</li>
+            <li>Practiced alert triage, incident documentation, and escalation decision-making aligned with NOC workflows.</li>
+          </ul>
+
+          <div class="mini-game">
+            <h3>Mini Game: Find the Root Cause</h3>
+            <p id="rcaPrompt">Click <strong>Generate</strong> for a fake incident and choose the best next step.</p>
+            <div class="cta-row">
+              <button id="rcaGenBtn" type="button">Generate Incident 🧩</button>
+              <button id="rcaA" type="button">Check logs</button>
+              <button id="rcaB" type="button">Restart everything</button>
+              <button id="rcaC" type="button">Escalate with evidence</button>
+            </div>
+            <p class="mini" id="rcaFeedback"></p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Certifications -->
+      <section id="certs" data-reveal>
+        <h2>Certifications</h2>
+
+        <div class="two-column">
+          <article>
+            <h3>CompTIA Security+</h3>
+            <p class="mini">Active</p>
+          </article>
+          <article>
+            <h3>CompTIA Network+</h3>
+            <p class="mini">In Progress</p>
+          </article>
+          <article>
+            <h3>CompTIA Cloud+</h3>
+            <p class="mini">Planned</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" data-reveal>
+        <h2>Contact</h2>
+        <article>
+          <p><strong>Name:</strong> DeVayhn (Devayjah) Coleman</p>
+          <p><strong>Location:</strong> Austin, TX</p>
+          <p><strong>Phone:</strong> (510) 934-7112</p>
+          <p class="mini">
+            <strong>LinkedIn:</strong>
+            <a href="https://www.linkedin.com/in/devayhn-coleman-788411223/" target="_blank" rel="noopener">
+              linkedin.com/in/devayhn-coleman-788411223
+            </a>
+          </p>
+          <p class="mini">
+            <strong>GitHub:</strong>
+            <a href="https://github.com/devayhncoleman" target="_blank" rel="noopener">
+              github.com/devayhncoleman
+            </a>
+          </p>
+
+          <div class="cta-row">
+            <button id="copyContactBtn" type="button">Copy contact info</button>
+            <button id="panicBtn" type="button">Panic Button</button>
+          </div>
+        </article>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2025 DeVayhn (Devayjah) Coleman</p>
+      </footer>
     </div>
-
-    <!-- Action buttons -->
-    <div class="cta-row">
-      <button id="hireMeBtn" type="button">Hire Me (responsibly)</button>
-      <button id="toggleNightShift" type="button">Night Shift Mode</button>
-      <button id="musicToggle" type="button">Play music 🎵</button>
-      <label class="vol">
-        <span>Vol</span>
-        <input id="musicVol" type="range" min="0" max="1" step="0.01" value="0.25">
-      </label>
-    </div>
-
-    <!-- Music element: put an mp3 at assets/music.mp3 -->
-    <!-- Smooth background music (neo-soul / jazz) -->
-<audio id="bgMusic" src="assets/Chill1.mp3" preload="auto"></audio>
-
-<!-- Red alert alarm sound for Panic button -->
-<audio id="alertSound" src="assets/shocked.mp3" preload="auto"></audio>
-
-  </header>
-
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#summary">Summary</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#practice">Hands-on</a></li>
-      <li><a href="#certs">Certs</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Summary -->
-  <section id="summary" data-reveal>
-    <h2>Professional Summary</h2>
-    <p>
-      Operations-focused IT professional supporting live production environments during overnight and extended 12-hour shifts.
-      Security+ certified with strong networking fundamentals and Linux experience. Proven in system monitoring, real-time alert
-      response, first-level troubleshooting, escalation, and documentation to maintain uptime in high-responsibility environments.
-    </p>
-
-    <div class="fun-panel" id="funPanel" aria-live="polite">
-      <p><strong>Status:</strong> <span id="statusLine">Standing by for alerts…</span></p>
-      <button id="simulateAlertBtn" type="button">Simulate an Alert 🚨</button>
-      <button id="calmDownBtn" type="button">Resolve Incident ✅</button>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" data-reveal>
-    <h2>Technical Skills</h2>
-
-    <article class="skill-card">
-      <h3>Networking</h3>
-      <p>TCP/IP, DNS, DHCP, VLANs, Subnetting, Firewall fundamentals, VPN concepts</p>
-    </article>
-
-    <article class="skill-card">
-      <h3>Systems</h3>
-      <p>Linux (CLI), Windows fundamentals, virtual machines, system health monitoring</p>
-    </article>
-
-    <article class="skill-card">
-      <h3>Operations</h3>
-      <p>Monitoring & alert response, incident triage, escalation workflows, documentation, change-controlled environments</p>
-    </article>
-
-    <article class="skill-card">
-      <h3>Security</h3>
-      <p>Access control, least privilege, incident awareness, Security+ principles</p>
-    </article>
-
-    <article class="skill-card">
-      <h3>Tools</h3>
-      <p>Command-line utilities, log review, ticketing systems (conceptual), monitoring dashboards</p>
-    </article>
-
-    <div class="chip-row">
-      <button class="chip" data-chip="Linux">Linux</button>
-      <button class="chip" data-chip="DNS">DNS</button>
-      <button class="chip" data-chip="Triage">Triage</button>
-      <button class="chip" data-chip="Uptime">Uptime</button>
-      <button class="chip" data-chip="Least Privilege">Least Privilege</button>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience" data-reveal>
-    <h2>Professional Experience</h2>
-
-    <article>
-      <h3>Technical Operations / Lab Operator</h3>
-      <p class="mini"><strong>Emerald Cloud Lab</strong> — Austin, TX • March 2022 – Present</p>
-      <ul class="bullets">
-        <li>Monitored and supported 24/7 production environments, responding to alerts and operational incidents in real time during overnight 12-hour shifts</li>
-        <li>Responded to system alerts, investigated anomalies, and followed documented procedures for resolution or escalation</li>
-        <li>Performed first-level troubleshooting across systems, access controls, and operational workflows to identify root causes and determine escalation paths</li>
-        <li>Documented incidents, actions taken, and resolutions to support shift handoffs, operational continuity, and audit readiness</li>
-        <li>Coordinated with cross-functional teams to resolve time-sensitive incidents impacting production operations</li>
-        <li>Operated within change-controlled environments requiring precision, accountability, and clear communication</li>
-      </ul>
-
-      <button id="copyBulletsBtn" type="button">Copy experience bullets 📋</button>
-    </article>
-  </section>
-
-  <!-- Hands-on Practice -->
-  <section id="practice" data-reveal>
-    <h2>Hands-on Operations Practice</h2>
-    <ul class="bullets">
-      <li>Performed Linux and Windows troubleshooting labs covering connectivity, DNS resolution, service management, log analysis, and system health monitoring</li>
-      <li>Practiced alert triage, incident documentation, and escalation decision-making aligned with NOC workflows</li>
-    </ul>
-
-    <div class="mini-game">
-      <h3>Mini Game: “Find the Root Cause”</h3>
-      <p id="rcaPrompt">Click <strong>Generate</strong> for a fake incident. Choose the best next step.</p>
-      <div class="cta-row">
-        <button id="rcaGenBtn" type="button">Generate Incident 🧩</button>
-        <button id="rcaA" type="button">Check logs</button>
-        <button id="rcaB" type="button">Restart everything</button>
-        <button id="rcaC" type="button">Escalate with evidence</button>
-      </div>
-      <p class="mini" id="rcaFeedback"></p>
-    </div>
-  </section>
-
-  <!-- Certifications -->
-  <section id="certs" data-reveal>
-    <h2>Certifications</h2>
-    <article>
-      <h3>CompTIA Security+</h3>
-      <p class="mini">Active</p>
-    </article>
-    <article>
-      <h3>CompTIA Network+</h3>
-      <p class="mini">In Progress</p>
-    </article>
-    <article>
-      <h3>CompTIA Cloud+</h3>
-      <p class="mini">Planned</p>
-    </article>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" data-reveal>
-    <h2>Contact</h2>
-    <p><strong>Phone:</strong> (510) 934-7112</p>
-    <p><strong>Location:</strong> Austin, TX</p>
-    <p class="mini">Add your email + LinkedIn/GitHub when ready.</p>
-
-    <div class="cta-row">
-      <button id="copyContactBtn" type="button">Copy contact info</button>
-      <button id="panicBtn" type="button">Panic Button (do not press)</button>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 DeVayhn (Devayjah) Coleman</p>
-  </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
