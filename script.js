@@ -224,12 +224,24 @@
 
   // ---------- Panic button (comedic) ----------
   const panicBtn = $("#panicBtn");
-  if (panicBtn) {
-    panicBtn.addEventListener("click", () => {
-      toast.show("PANIC MODE: enabled. (It does nothing, like half the vendor docs.)", "bad", 4200);
-      document.documentElement.classList.toggle("boss-mode");
-    });
-  }
+if (panicBtn) {
+  panicBtn.addEventListener("click", () => {
+    toast.show("PANIC MODE: enabled. (Only use for production incidents and job offers.)", "bad", 4200);
+    document.documentElement.classList.toggle("boss-mode");
+
+    // Play red alert sound if present
+    if (alertSound) {
+      try {
+        alertSound.currentTime = 0;  // restart from beginning
+        alertSound.volume = 0.9;     // loud but not max
+        alertSound.play();
+      } catch (e) {
+        console.warn("Alert sound failed to play:", e);
+      }
+    }
+  });
+}
+
 
   // ---------- Mini game: Find the Root Cause ----------
   const rcaPrompt = $("#rcaPrompt");
@@ -288,6 +300,7 @@
   const audio = $("#bgMusic");
   const musicToggle = $("#musicToggle");
   const musicVol = $("#musicVol");
+  const alertSound = $("#alertSound");
 
   if (audio && musicToggle) {
     audio.loop = true;
